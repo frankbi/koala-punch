@@ -1,6 +1,6 @@
-# KOALA PUNCH
+# koala punch
 
 ![koala](http://frankbi.io/koala-punch/images/koala.png "koala yo")
 
 
-# ¯\\_( [demo](frank.io/koala-punch) )_/¯
+# ¯\\_( [demo](http://frank.io/koala-punch) )_/¯

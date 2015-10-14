@@ -88,9 +88,19 @@
     		$(".score-card").html("<h2 class='score'>" + punch_counter + "</h2>");
     		audio.play();
     		$(".koala").css({
+    			"background-image": 'url("images/koala2.png")'
+    		})
+    		$(".koala").css({
     			"cursor": "url('images/nuget.png'), auto"
     		});
     	});
+
+    	$(".koala").mouseout(function(){
+    		$(".koala").css({
+    			"background-image": 'url("images/koala.png")'
+    		})
+    	})
+
 
     	$(".color-square").click(function() {
     		var name = $(this).attr("name");

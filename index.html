@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+	<style>
+
+	@import url(https://fonts.googleapis.com/css?family=Oswald:400,700,300);
+
+	body {
+		background-image: url("images/background-1.png");
+		font-family: 'Oswald', sans-serif;
+	}
+	div.tall-nav {
+		width: 100px;
+		height: 90vh;
+		position: relative;
+	}
+		.left {
+			float: left;
+		}
+		.right {
+			float: right;
+		}
+	div.koala {
+		width: 200px;
+		height: 200px;
+		background-image: url("images/koala.png");
+		background-size: 200px;
+		position: fixed;
+	}
+	.color-square {
+		width: 30px;
+		height: 30px;
+		margin: 10px;
+		border-radius: 99px;
+		background-color: lightgray;
+		cursor: pointer;
+	}
+	.score-card {
+		width: 100%;
+		height: 50px;
+		position: absolute;
+		bottom: 0;
+	}
+	h2.score {
+		font-weight: bold;
+		margin: 10px;
+	}
+
+	.right > p {
+		padding: 5px;
+		cursor: pointer;
+		text-align: center;
+		border-radius: 50px;
+	}
+
+	.right > p:hover {
+		background-color: black;
+		color: white;
+	}
+
+	</style>
+
+	<div class="tall-nav left">
+		<div class="color-square" style="background-image: url('images/background-1.png');" name="images/background-1.png"></div>
+		<div class="color-square" style="background-color: #FF6600;" name="ff6600"></div>
+		<div class="color-square" style="background-color: #CC3333;" name="cc3333"></div>
+		<div class="color-square" style="background-color: #996633;" name="996633"></div>
+		<div class="color-square" style="background-color: #993366;" name="993366"></div>
+		<div class="score-card"><h2 class="score">0</h2></div>
+	</div>
+
+	<div class="koala"></div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript">
+
+	$(document).ready(function(){
+
+		var punch_counter = 0;
+
+    	animateDiv(1000);
+
+    	var audio = new Audio("sounds/punch.mp3");
+
+    	$(".koala").mouseover(function() {
+    		punch_counter++;
+    		$(".score-card").html("<h2 class='score'>" + punch_counter + "</h2>");
+    		audio.play();
+    		$(".koala").css({
+    			"cursor": "url('images/nuget.png'), auto"
+    		});
+    	});
+
+    	$(".color-square").click(function() {
+    		var name = $(this).attr("name");
+    		if (name.indexOf(".") > -1) {
+    			$("body").css({
+       				"background-image": "url(" + name + ")"
+       			});
+    		} else {
+	    		$("body").css({
+	    			"background-color": "#" + name,
+	    			"background-image": "none"
+	    		});
+    		}
+    	});
+
+	});
+
+	function makeNewPosition(){
+	    var h = $(window).height() - 300;
+	    var w = $(window).width() - 300;
+	    var nh = Math.floor(Math.random() * h);
+	    var nw = Math.floor(Math.random() * w);
+	    return [nh,nw];    
+	}
+
+	function animateDiv(speed){
+	    var newq = makeNewPosition();
+	    $('.koala').animate({ top: newq[0], left: newq[1] }, speed, function() {
+	      animateDiv(speed);        
+	    });
+	};
+
+	</script>
+
+</html>

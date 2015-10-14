@@ -3,4 +3,4 @@
 ![koala](http://frankbi.io/koala-punch/images/koala.png "koala yo")
 
 
-# ¯\\_( [demo](http://frank.io/koala-punch) )_/¯
+# ¯\\_( [demo](http://frankbi.io/koala-punch) )_/¯
